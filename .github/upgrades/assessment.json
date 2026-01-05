@@ -1,0 +1,288 @@
+{
+  "settings": {
+    "components": {
+      "code": false,
+      "binaries": false
+    },
+    "targetId": "net8.0",
+    "targetDisplayName": ".NETCoreApp,Version=v8.0"
+  },
+  "analysisStartTime": "2026-01-05T19:04:09.898335Z",
+  "analysisEndTime": "2026-01-05T19:04:15.5154488Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 5,
+      "incidents": 7,
+      "effort": 7
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 3,
+        "Optional": 2,
+        "Potential": 2,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 5,
+        "Project": 2
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+      "startingProject": true,
+      "issues": 5,
+      "storyPoints": 7,
+      "properties": {
+        "appName": "CountryPicker.UWP",
+        "projectKind": "Uwp",
+        "frameworks": [
+          "net5.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": false,
+        "numberOfFiles": 259,
+        "numberOfCodeFiles": 8,
+        "linesTotal": 13010,
+        "linesOfCode": 1940,
+        "totalApiScanned": 0,
+        "minLinesOfCodeToChange": 0,
+        "maxLinesOfCodeToChange": 0
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "7c26535d-7762-48f5-9e99-f8d3388080e1",
+          "ruleId": "NuGet.0002",
+          "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.NETCore.UniversalWindowsPlatform, 5.3.3\n\nRecommendation:\n\nRemove Microsoft.NETCore.UniversalWindowsPlatform, and replace with new package Microsoft.WindowsAppSDK 1.8.251106002,\nMicrosoft.Graphics.Win2D 1.1.0,\nMicrosoft.Windows.Compatibility 10.0.1",
+              "protected": "Microsoft.NETCore.UniversalWindowsPlatform, 5.3.3\n\nRecommendation:\n\nRemove Microsoft.NETCore.UniversalWindowsPlatform, and replace with new package Microsoft.WindowsAppSDK 1.8.251106002,\nMicrosoft.Graphics.Win2D 1.1.0,\nMicrosoft.Windows.Compatibility 10.0.1"
+            },
+            "kind": "File",
+            "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+            "snippet": "Microsoft.NETCore.UniversalWindowsPlatform, 5.3.3\n\nRecommendation:\n\nRemove Microsoft.NETCore.UniversalWindowsPlatform, and replace with new package Microsoft.WindowsAppSDK 1.8.251106002,\nMicrosoft.Graphics.Win2D 1.1.0,\nMicrosoft.Windows.Compatibility 10.0.1",
+            "protectedSnippet": "Microsoft.NETCore.UniversalWindowsPlatform, 5.3.3\n\nRecommendation:\n\nRemove Microsoft.NETCore.UniversalWindowsPlatform, and replace with new package Microsoft.WindowsAppSDK 1.8.251106002,\nMicrosoft.Graphics.Win2D 1.1.0,\nMicrosoft.Windows.Compatibility 10.0.1",
+            "label": "Microsoft.NETCore.UniversalWindowsPlatform 5.3.3",
+            "properties": {
+              "PackageId": "Microsoft.NETCore.UniversalWindowsPlatform",
+              "PackageVersion": "5.3.3",
+              "PackageNewVersion": null,
+              "PackageReplacements": "Replace with new package Microsoft.WindowsAppSDK=1.8.251106002;Microsoft.Graphics.Win2D=1.1.0;Microsoft.Windows.Compatibility=10.0.1"
+            }
+          }
+        },
+        {
+          "incidentId": "93d4cdd5-4768-4748-a01e-fd444d016cbd",
+          "ruleId": "NuGet.0002",
+          "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Newtonsoft.Json, 7.0.1\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+              "protected": "Newtonsoft.Json, 7.0.1\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4"
+            },
+            "kind": "File",
+            "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+            "snippet": "Newtonsoft.Json, 7.0.1\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+            "protectedSnippet": "Newtonsoft.Json, 7.0.1\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+            "label": "Newtonsoft.Json 7.0.1",
+            "properties": {
+              "PackageId": "Newtonsoft.Json",
+              "PackageVersion": "7.0.1",
+              "PackageNewVersion": "13.0.4",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "bf52624f-d90e-445b-ae54-e3500a7d5a9c",
+          "ruleId": "NuGet.0001",
+          "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Win2D.uwp, 1.19.0\n\nRecommendation:\n\nWin2D.uwp, 1.27.1",
+              "protected": "Win2D.uwp, 1.19.0\n\nRecommendation:\n\nWin2D.uwp, 1.27.1"
+            },
+            "kind": "File",
+            "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+            "snippet": "Win2D.uwp, 1.19.0\n\nRecommendation:\n\nWin2D.uwp, 1.27.1",
+            "protectedSnippet": "Win2D.uwp, 1.19.0\n\nRecommendation:\n\nWin2D.uwp, 1.27.1",
+            "label": "Win2D.uwp 1.19.0",
+            "properties": {
+              "PackageId": "Win2D.uwp",
+              "PackageVersion": "1.19.0",
+              "PackageNewVersion": "1.27.1",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "5b9ad5d7-63ba-47b8-9ebe-a2ce5c9effd9",
+          "ruleId": "NuGet.0004",
+          "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.NETCore.UniversalWindowsPlatform, 5.3.3\n\nRecommendation:\n\nMicrosoft.NETCore.UniversalWindowsPlatform, 5.4.7",
+              "protected": "Microsoft.NETCore.UniversalWindowsPlatform, 5.3.3\n\nRecommendation:\n\nMicrosoft.NETCore.UniversalWindowsPlatform, 5.4.7"
+            },
+            "kind": "File",
+            "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+            "snippet": "Microsoft.NETCore.UniversalWindowsPlatform, 5.3.3\n\nRecommendation:\n\nMicrosoft.NETCore.UniversalWindowsPlatform, 5.4.7",
+            "protectedSnippet": "Microsoft.NETCore.UniversalWindowsPlatform, 5.3.3\n\nRecommendation:\n\nMicrosoft.NETCore.UniversalWindowsPlatform, 5.4.7",
+            "label": "Microsoft.NETCore.UniversalWindowsPlatform 5.3.3",
+            "properties": {
+              "PackageId": "Microsoft.NETCore.UniversalWindowsPlatform",
+              "PackageVersion": "5.3.3",
+              "PackageNewVersion": "5.4.7",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "15482a13-f5d2-45e7-872b-705180010635",
+          "ruleId": "NuGet.0004",
+          "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Newtonsoft.Json, 7.0.1\n\nRecommendation:\n\nNewtonsoft.Json, 13.0.4",
+              "protected": "Newtonsoft.Json, 7.0.1\n\nRecommendation:\n\nNewtonsoft.Json, 13.0.4"
+            },
+            "kind": "File",
+            "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+            "snippet": "Newtonsoft.Json, 7.0.1\n\nRecommendation:\n\nNewtonsoft.Json, 13.0.4",
+            "protectedSnippet": "Newtonsoft.Json, 7.0.1\n\nRecommendation:\n\nNewtonsoft.Json, 13.0.4",
+            "label": "Newtonsoft.Json 7.0.1",
+            "properties": {
+              "PackageId": "Newtonsoft.Json",
+              "PackageVersion": "7.0.1",
+              "PackageNewVersion": "13.0.4",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "05058472-45b7-4a9b-bc12-95bf2e43704f",
+          "ruleId": "Project.0001",
+          "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj"
+          }
+        },
+        {
+          "incidentId": "ce871b26-2900-4802-acd5-7b6d6227565d",
+          "ruleId": "Project.0002",
+          "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net8.0-windows10.0.22000.0",
+              "protected": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net8.0-windows10.0.22000.0"
+            },
+            "kind": "File",
+            "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
+            "snippet": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net8.0-windows10.0.22000.0",
+            "protectedSnippet": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net8.0-windows10.0.22000.0",
+            "properties": {
+              "CurrentTargetFramework": ".NETCore,Version=v5.0",
+              "RecommendedTargetFramework": "net8.0-windows10.0.22000.0"
+            }
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0001": {
+      "id": "NuGet.0001",
+      "isFeature": false,
+      "description": "NuGet package is incompatible with selected target framework.\n\nPackage needs to be upgraded to a version supporting selected project target framework. If there no new package versions supporting new target framework, different package needs to be used and all code needs to be upgraded to new API.",
+      "label": "NuGet package is incompatible",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262529",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0004": {
+      "id": "NuGet.0004",
+      "isFeature": false,
+      "description": "NuGet package contains security vulnerabilities.\n\nPackage needs to be upgraded to a newer version that addresses known security vulnerabilities.",
+      "label": "NuGet package contains security vulnerability",
+      "severity": "Optional",
+      "effort": 1
+    },
+    "Project.0001": {
+      "id": "Project.0001",
+      "isFeature": false,
+      "description": "Project file needs to be converted to SDK-style. Modern .NET framework projects require a change in the project file format and use SDK corresponding to project flavor and functionality.",
+      "label": "Project file needs to be converted to SDK-style",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}
