@@ -39,7 +39,7 @@ namespace CountryPicker.UWP.Class.Models
         /// <summary>
         /// Header background
         /// </summary>
-        public Brush HeaderBackground { get; set; } = new SolidColorBrush(Windows.UI.Color.FromArgb(255,2,169,79));
+        public Brush HeaderBackground { get; set; } = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255,2,169,79));
 
         /// <summary>
         /// Searchbar FontFamily

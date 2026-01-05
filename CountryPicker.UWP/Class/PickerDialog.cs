@@ -101,7 +101,7 @@ namespace CountryPicker.UWP.Class
             {
                 VerticalContentAlignment = VerticalAlignment.Stretch,
                 HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                Background = new SolidColorBrush(Windows.UI.Color.FromArgb(20, 50, 50, 50)),
+                Background = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(20, 50, 50, 50)),
                 FullSizeDesired = true,
             };
 
