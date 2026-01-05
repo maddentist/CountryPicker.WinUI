@@ -99,26 +99,26 @@ namespace CountryPicker.UWP.Class
         {
             _dialog = new ContentDialog()
             {
-                VerticalContentAlignment = VerticalAlignment.Stretch,
-                HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                Background = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(20, 50, 50, 50)),
+                Title = "Select Country",
+                CloseButtonText = "Cancel",
+                DefaultButton = ContentDialogButton.Close,
                 FullSizeDesired = true,
             };
 
-            // Set XamlRoot for WinUI 3 ContentDialog
+            // XamlRoot MUST be set for WinUI 3 ContentDialog
             if (XamlRoot != null)
             {
                 _dialog.XamlRoot = XamlRoot;
             }
-
-            var frame = new Frame();
+            else
+            {
+                throw new InvalidOperationException("XamlRoot must be set before calling ShowAsync(). Set picker.XamlRoot = element.XamlRoot");
+            }
 
             var countryPage = new CountryPickerPage(CountryName);
             countryPage.InitializeProperties(this);
 
-            frame.Content = countryPage;
-
-            _dialog.Content = frame;
+            _dialog.Content = countryPage;
         }
 
         #endregion

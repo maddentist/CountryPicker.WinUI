@@ -18,11 +18,11 @@ namespace CountryPicker.UWP
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    internal sealed partial class CountryPickerPage : Page
+    public sealed partial class CountryPickerPage : Page
     {
-        internal  delegate void SelectedCountryEventHandler(object sender, CountryModel selected);
+        public delegate void SelectedCountryEventHandler(object sender, CountryModel selected);
 
-        internal delegate void BackButtonPressedEventHandler(object sender);
+        public delegate void BackButtonPressedEventHandler(object sender);
 
         /// <summary>
         /// Event fire when user click country
@@ -127,7 +127,7 @@ namespace CountryPicker.UWP
         }
         #endregion
 
-        internal CountryPickerPage()
+        public CountryPickerPage()
         {
             this.InitializeComponent();
 
@@ -135,7 +135,7 @@ namespace CountryPicker.UWP
             Loaded += OnLoaded;
         }
 
-        internal CountryPickerPage(string countryName)
+        public CountryPickerPage(string countryName)
         {
             this.InitializeComponent();
 
