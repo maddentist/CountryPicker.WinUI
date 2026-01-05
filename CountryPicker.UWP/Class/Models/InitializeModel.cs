@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 
 namespace CountryPicker.UWP.Class.Models
 {
@@ -40,7 +39,7 @@ namespace CountryPicker.UWP.Class.Models
         /// <summary>
         /// Header background
         /// </summary>
-        public Brush HeaderBackground { get; set; } = new SolidColorBrush(Color.FromArgb(255,2,169,79));
+        public Brush HeaderBackground { get; set; } = new SolidColorBrush(Windows.UI.Color.FromArgb(255,2,169,79));
 
         /// <summary>
         /// Searchbar FontFamily
@@ -60,7 +59,7 @@ namespace CountryPicker.UWP.Class.Models
         /// <summary>
         /// Back button title
         /// </summary>
-        public string BackButtonText { get; set; } = "";
+        public string BackButtonText { get; set; } = "";
 
 
         protected InitializeModel(string countryName, string header, string searchBoxPlaceHolder, bool showBackButton, bool showHeader, Brush headerBackground, FontFamily searchBoxFontFamily, FontFamily headerFontFamily, string backButtonText)

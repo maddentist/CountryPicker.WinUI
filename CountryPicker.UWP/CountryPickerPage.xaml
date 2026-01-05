@@ -62,15 +62,15 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <SearchBox
+            <AutoSuggestBox
                 Name="TxtSearchBox"
-                QueryChanged="SearchBox_OnQueryChanged"
+                TextChanged="AutoSuggestBox_OnTextChanged"
                 FontFamily="{StaticResource IranSans}"
                 PlaceholderText="جستجو"
                 BorderBrush="#FF02A94F"
                 BorderThickness="0,0,0,0.8"
                 Padding="12"
-                SearchHistoryEnabled="False" />
+                QueryIcon="Find" />
 
             <ListView
                 SelectedIndex="-1"

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 using CountryPicker.UWP.Annotations;
 using CountryPicker.UWP.Data;
 using Newtonsoft.Json;
