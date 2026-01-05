@@ -4,11 +4,11 @@
       "code": false,
       "binaries": false
     },
-    "targetId": "net8.0",
-    "targetDisplayName": ".NETCoreApp,Version=v8.0"
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
   },
-  "analysisStartTime": "2026-01-05T19:04:09.898335Z",
-  "analysisEndTime": "2026-01-05T19:04:15.5154488Z",
+  "analysisStartTime": "2026-01-05T19:40:53.6198871Z",
+  "analysisEndTime": "2026-01-05T19:40:54.3754381Z",
   "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
   "stats": {
     "summary": {
@@ -59,7 +59,7 @@
       },
       "ruleInstances": [
         {
-          "incidentId": "7c26535d-7762-48f5-9e99-f8d3388080e1",
+          "incidentId": "5498bfac-a2c2-4308-ada9-9b716189bb30",
           "ruleId": "NuGet.0002",
           "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
           "state": "Active",
@@ -82,7 +82,7 @@
           }
         },
         {
-          "incidentId": "93d4cdd5-4768-4748-a01e-fd444d016cbd",
+          "incidentId": "d913e78b-6aff-4ab7-9067-81a028aa483c",
           "ruleId": "NuGet.0002",
           "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
           "state": "Active",
@@ -105,7 +105,7 @@
           }
         },
         {
-          "incidentId": "bf52624f-d90e-445b-ae54-e3500a7d5a9c",
+          "incidentId": "eb1c3f34-ed1b-474a-8a54-8f7d0dceb105",
           "ruleId": "NuGet.0001",
           "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
           "state": "Active",
@@ -128,7 +128,7 @@
           }
         },
         {
-          "incidentId": "5b9ad5d7-63ba-47b8-9ebe-a2ce5c9effd9",
+          "incidentId": "cb0d4abf-7d65-4f6e-bc06-36a8e3b9776b",
           "ruleId": "NuGet.0004",
           "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
           "state": "Active",
@@ -151,7 +151,7 @@
           }
         },
         {
-          "incidentId": "15482a13-f5d2-45e7-872b-705180010635",
+          "incidentId": "74a08ffc-9af7-4eee-895e-0ae55b008f62",
           "ruleId": "NuGet.0004",
           "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
           "state": "Active",
@@ -174,7 +174,7 @@
           }
         },
         {
-          "incidentId": "05058472-45b7-4a9b-bc12-95bf2e43704f",
+          "incidentId": "cff19b45-0775-4864-b4a6-43f2fa86e9ae",
           "ruleId": "Project.0001",
           "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
           "state": "Active",
@@ -184,22 +184,22 @@
           }
         },
         {
-          "incidentId": "ce871b26-2900-4802-acd5-7b6d6227565d",
+          "incidentId": "7080d88b-bd2a-4f9e-9f9d-491620fc9e2d",
           "ruleId": "Project.0002",
           "projectPath": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
-              "unrestricted": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net8.0-windows10.0.22000.0",
-              "protected": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net8.0-windows10.0.22000.0"
+              "unrestricted": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net10.0-windows10.0.22000.0",
+              "protected": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net10.0-windows10.0.22000.0"
             },
             "kind": "File",
             "path": "CountryPicker.UWP\\CountryPicker.UWP.csproj",
-            "snippet": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net8.0-windows10.0.22000.0",
-            "protectedSnippet": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net8.0-windows10.0.22000.0",
+            "snippet": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net10.0-windows10.0.22000.0",
+            "protectedSnippet": "Current target framework: .NETCore,Version=v5.0\nRecommended target framework: net10.0-windows10.0.22000.0",
             "properties": {
               "CurrentTargetFramework": ".NETCore,Version=v5.0",
-              "RecommendedTargetFramework": "net8.0-windows10.0.22000.0"
+              "RecommendedTargetFramework": "net10.0-windows10.0.22000.0"
             }
           }
         }

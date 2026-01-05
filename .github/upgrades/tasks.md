@@ -1,43 +1,57 @@
-# CountryPicker UWP → WinUI 3 Upgrade Tasks
+# CountryPicker WinUI 3 .NET 10.0 Upgrade Tasks
 
 ## Overview
 
-This document tracks the execution of converting the CountryPicker UWP custom control project to WinUI 3 on Windows App SDK. The single project will be upgraded atomically from classic UWP to SDK-style targeting net8.0-windows10.0.22000.0.
+This document tracks the execution of the CountryPicker UWP project conversion to WinUI 3 targeting .NET 10.0. The single project will be converted to SDK-style format, migrated to Windows App SDK, and validated in one atomic operation.
 
-**Progress**: 0/2 tasks complete (0%) ![0%](https://progress-bar.xyz/0)
+**Progress**: 0/3 tasks complete (0%) ![0%](https://progress-bar.xyz/0)
 
 ---
 
 ## Tasks
 
 ### [▶] TASK-001: Verify prerequisites
-**References**: Plan §4 Migration Steps
+**References**: Plan §2 Migration Strategy, Plan §9 Complexity & Effort Assessment
 
-- [ ] (1) Verify .NET 8 SDK installed
-- [ ] (2) SDK version meets minimum requirements (Verify)
-- [ ] (3) Verify Windows App SDK 1.8 workload available
-- [ ] (4) Workload installed (Verify)
+- [▶] (1) Verify .NET 10 SDK is installed
+- [ ] (2) .NET 10 SDK meets minimum requirements (**Verify**)
+- [ ] (3) Verify Windows App SDK 1.8 workload is available
+- [ ] (4) Windows App SDK 1.8 workload is available (**Verify**)
+- [ ] (5) Update `global.json` if present to allow .NET 10
+- [ ] (6) `global.json` allows .NET 10 SDK (**Verify**)
 
 ---
 
-### [ ] TASK-002: Atomic project conversion and dependency upgrade
-**References**: Plan §4 Migration Steps, Plan §4 Package Update Table, Plan §4 Expected Breaking Changes
+### [ ] TASK-002: Atomic project conversion and dependency upgrade with compilation fixes
+**References**: Plan §4 Project-by-Project Plans (CountryPicker.UWP), Plan §5 Package Update Reference, Plan §6 Breaking Changes Catalog
 
-- [ ] (1) Convert CountryPicker.UWP.csproj to SDK-style per Plan §4 step 2 (Sdk="Microsoft.NET.Sdk", TargetFramework=net8.0-windows10.0.22000.0, UseWinUI=true)
-- [ ] (2) Project file converted to SDK-style (Verify)
-- [ ] (3) Update global.json if present to target .NET 8 SDK
-- [ ] (4) Remove packages: Microsoft.NETCore.UniversalWindowsPlatform, Win2D.uwp per Plan §4 Package Update Table
-- [ ] (5) Add packages: Microsoft.WindowsAppSDK 1.8.251106002, Microsoft.Graphics.Win2D 1.1.0, Microsoft.Windows.Compatibility 10.0.1 per Plan §4 Package Update Table
-- [ ] (6) Upgrade package: Newtonsoft.Json to 13.0.4 per Plan §4 Package Update Table
-- [ ] (7) All package references updated (Verify)
-- [ ] (8) Restore all dependencies
-- [ ] (9) All dependencies restored successfully (Verify)
-- [ ] (10) Update XAML namespaces per Plan §4 step 4 (Windows.UI.Xaml → Microsoft.UI.Xaml, add Microsoft.UI.Xaml.Controls usings)
-- [ ] (11) Update App.xaml.cs bootstrap per Plan §4 step 4 (use Microsoft.UI.Xaml.Application, Window activation model)
-- [ ] (12) Update resource dictionaries and assets per Plan §4 step 5 (Generic.xaml for WinUI 3, ensure UseWinUI behavior)
-- [ ] (13) Fix namespace imports per Plan §4 step 6 (Windows.* → Microsoft.* where applicable, use Windows.Compatibility for gaps)
-- [ ] (14) Build solution and fix all compilation errors per Plan §4 Expected Breaking Changes (namespace changes, Window activation model, UWP-only API substitutions)
-- [ ] (15) Solution builds with 0 errors (Verify)
-- [ ] (16) Commit changes with message: "TASK-002: Complete atomic WinUI 3 upgrade and migration"
+- [ ] (1) Convert `CountryPicker.UWP\CountryPicker.UWP.csproj` to SDK-style format per Plan §4 Step 2 (use `Sdk="Microsoft.NET.Sdk"`, set `<TargetFramework>net10.0-windows10.0.22000.0</TargetFramework>`, add `<UseWinUI>true</UseWinUI>`, set `<TargetPlatformMinVersion>10.0.22000.0</TargetPlatformMinVersion>`, preserve entry points and assets, remove legacy UWP properties)
+- [ ] (2) Project converted to SDK-style format (**Verify**)
+- [ ] (3) Remove package references: `Microsoft.NETCore.UniversalWindowsPlatform` 5.3.3, `Win2D.uwp` 1.19.0
+- [ ] (4) Add package references: `Microsoft.WindowsAppSDK` 1.8.251106002, `Microsoft.Graphics.Win2D` 1.1.0, `Microsoft.Windows.Compatibility` 10.0.1
+- [ ] (5) Update package reference: `Newtonsoft.Json` 7.0.1 → 13.0.4
+- [ ] (6) All package references updated per Plan §5 (**Verify**)
+- [ ] (7) Update XAML namespace declarations in all XAML files per Plan §4 Step 4 (`Windows.UI.Xaml.*` → `Microsoft.UI.Xaml.*`)
+- [ ] (8) Update C# using statements in all C# files per Plan §4 Step 5 (`using Windows.UI.Xaml;` → `using Microsoft.UI.Xaml;` and similar for Controls, Media, Input, Data, Shapes, Composition, Text)
+- [ ] (9) Update `App.xaml.cs` to use `Microsoft.UI.Xaml.Application` per Plan §4 Step 6 (update Window activation pattern, replace `ApplicationView`/`CoreApplication` with `AppWindow`/`DispatcherQueue`)
+- [ ] (10) Update resource dictionaries to WinUI styles per Plan §4 Step 7 (update `Themes/Generic.xaml` if exists)
+- [ ] (11) Restore dependencies: `dotnet restore`
+- [ ] (12) All dependencies restored successfully (**Verify**)
+- [ ] (13) Build solution and fix all compilation errors per Plan §6 Breaking Changes Catalog (namespace changes, API changes, Win2D compatibility, Newtonsoft.Json compatibility)
+- [ ] (14) Solution builds with 0 errors (**Verify**)
+- [ ] (15) Commit changes with message: "TASK-002: Convert CountryPicker.UWP to WinUI 3 .NET 10.0"
+
+---
+
+### [ ] TASK-003: Runtime validation
+**References**: Plan §4 Validation Checklist, Plan §8 Testing & Validation Strategy
+
+- [ ] (1) Execute runtime validation per Plan §8 Build Validation (`dotnet restore` and `dotnet build` complete successfully, 0 migration-related warnings)
+- [ ] (2) Build validation successful (**Verify**)
+- [ ] (3) Execute runtime validation per Plan §8 Runtime Validation (control loads without XAML parse errors, control renders correctly, user interactions work, resource dictionaries load)
+- [ ] (4) Runtime validation successful (**Verify**)
+- [ ] (5) Execute functional validation per Plan §8 Functional Validation (JSON serialization/deserialization works, Win2D graphics render correctly if used, country picker functionality intact)
+- [ ] (6) Functional validation successful (**Verify**)
+- [ ] (7) Commit validation results with message: "TASK-003: Complete WinUI 3 .NET 10.0 migration validation"
 
 ---
