@@ -19,7 +19,7 @@ namespace CountryPicker.UWP.Class.Models
         /// <summary>
         /// Country name
         /// </summary>
-        public string CountryName { get; set; } = "ایران";
+        public string CountryName { get; set; } = "";
 
         /// <summary>
         /// Show picker header
@@ -34,7 +34,7 @@ namespace CountryPicker.UWP.Class.Models
         /// <summary>
         /// Searchbar placeholder
         /// </summary>
-        public string SearchBoxPlaceHolder { get; set; } = "جستجو";
+        public string SearchBoxPlaceHolder { get; set; } = "";
 
         /// <summary>
         /// Header background
