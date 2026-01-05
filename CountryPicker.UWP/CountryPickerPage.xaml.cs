@@ -2,13 +2,11 @@
 using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
-using Windows.Foundation.Metadata;
-using Windows.Phone.UI.Input;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI.Dispatching;
 using CountryPicker.UWP.Class;
 using CountryPicker.UWP.Class.Models;
 
@@ -20,11 +18,11 @@ namespace CountryPicker.UWP
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    internal sealed partial class CountryPickerPage : Page
+    public sealed partial class CountryPickerPage : Page
     {
-        internal  delegate void SelectedCountryEventHandler(object sender, CountryModel selected);
+        public delegate void SelectedCountryEventHandler(object sender, CountryModel selected);
 
-        internal delegate void BackButtonPressedEventHandler(object sender);
+        public delegate void BackButtonPressedEventHandler(object sender);
 
         /// <summary>
         /// Event fire when user click country
@@ -129,7 +127,7 @@ namespace CountryPicker.UWP
         }
         #endregion
 
-        internal CountryPickerPage()
+        public CountryPickerPage()
         {
             this.InitializeComponent();
 
@@ -137,7 +135,7 @@ namespace CountryPicker.UWP
             Loaded += OnLoaded;
         }
 
-        internal CountryPickerPage(string countryName)
+        public CountryPickerPage(string countryName)
         {
             this.InitializeComponent();
 
@@ -168,29 +166,6 @@ namespace CountryPicker.UWP
                 var model = e.Parameter as InitializeModel;
                 InitializeProperties(model);
             }
-
-            if (ApiInformation.IsApiContractPresent("Windows.Phone.PhoneContract", 1, 0))
-            {
-                Windows.Phone.UI.Input.HardwareButtons.BackPressed -= HardwareButtonsOnBackPressed;
-                HardwareButtons.BackPressed += HardwareButtonsOnBackPressed;
-            }
-            else
-            {
-                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested -= OnBackRequested;
-                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
-            }
-        }
-
-        private void OnBackRequested(object sender, BackRequestedEventArgs backRequestedEventArgs)
-        {
-            backRequestedEventArgs.Handled = true;
-            BackButtonClickedEvent?.Invoke(this);
-        }
-
-        private void HardwareButtonsOnBackPressed(object sender, BackPressedEventArgs backPressedEventArgs)
-        {
-            backPressedEventArgs.Handled = true;
-            BackButtonClickedEvent?.Invoke(this);
         }
 
         private void BtnBackButton_OnClick(object sender, RoutedEventArgs e)
@@ -204,9 +179,13 @@ namespace CountryPicker.UWP
             SelectedCountryEvent?.Invoke(CountryListView, model);
         }
 
-        private void SearchBox_OnQueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
+        private void AutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            CountryVM.Source = CountryModel.GetCountries(args.QueryText);
+            // Only filter when user types (not when suggestion is chosen)
+            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                CountryVM.Source = CountryModel.GetCountries(sender.Text);
+            }
         }
 
         #endregion
@@ -219,7 +198,7 @@ namespace CountryPicker.UWP
         /// <param name="countryName"></param>
         private async Task LoadData(string countryName = "")
         {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Low,async delegate
+            DispatcherQueue.TryEnqueue(DispatcherQueuePriority.Low, async () =>
             {
                 CountryVM.Source = CountryModel.GetCountries();
 
@@ -227,15 +206,14 @@ namespace CountryPicker.UWP
                 CountryListView.ItemClick += CountryListViewOnItemClick;
                 CountryListView.IsItemClickEnabled = true;
 
-                await CountryVM.Dispatcher.RunAsync(CoreDispatcherPriority.Low,async delegate
+                DispatcherQueue.TryEnqueue(DispatcherQueuePriority.Low, () =>
                 {
-                    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () =>
-                    {
-                        CountryListView.SelectedIndex = CountryModel.GetCountryModelIndex(CountryName);
-                        CountryListView.ScrollIntoView(CountryListView.SelectedItem);
-                    });
+                    CountryListView.SelectedIndex = CountryModel.GetCountryModelIndex(CountryName);
+                    CountryListView.ScrollIntoView(CountryListView.SelectedItem);
                 });
             });
+            
+            await Task.CompletedTask;
         }
 
         /// <summary>

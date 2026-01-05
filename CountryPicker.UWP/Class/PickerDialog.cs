@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Metadata;
-using Windows.Graphics.Display;
-using Windows.UI;
-using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 using CountryPicker.UWP.Class.Models;
 
 namespace CountryPicker.UWP.Class
@@ -34,6 +29,12 @@ namespace CountryPicker.UWP.Class
         public event BackButtonPressedEventHandler BackButtonClicked;
 
         private ContentDialog _dialog;
+        
+        /// <summary>
+        /// XamlRoot required for ContentDialog in WinUI 3
+        /// Must be set before calling ShowAsync()
+        /// </summary>
+        public XamlRoot XamlRoot { get; set; }
 
         #region Properties
 
@@ -96,32 +97,30 @@ namespace CountryPicker.UWP.Class
 
         private void Init()
         {
-            if (!IsPhone())
+            _dialog = new ContentDialog()
             {
-                _dialog = new ContentDialog()
-                {
-                    VerticalContentAlignment = VerticalAlignment.Stretch,
-                    HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                    Background = new SolidColorBrush(Color.FromArgb(20,50,50,50)),
-                    FullSizeDesired = true,
+                Title = "Select Country",
+                CloseButtonText = "Cancel",
+                DefaultButton = ContentDialogButton.Close,
+                FullSizeDesired = true,
+            };
 
-                };
-
-                var frame = new Frame();
-
-                var countryPage = new CountryPickerPage(CountryName);
-                countryPage.InitializeProperties(this);
-
-                frame.Content = countryPage;
-
-                _dialog.Content = frame;
+            // XamlRoot MUST be set for WinUI 3 ContentDialog
+            if (XamlRoot != null)
+            {
+                _dialog.XamlRoot = XamlRoot;
             }
+            else
+            {
+                throw new InvalidOperationException("XamlRoot must be set before calling ShowAsync(). Set picker.XamlRoot = element.XamlRoot");
+            }
+
+            var countryPage = new CountryPickerPage(CountryName);
+            countryPage.InitializeProperties(this);
+
+            _dialog.Content = countryPage;
         }
 
-        private bool IsPhone()
-        {
-            return ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar");
-        }
         #endregion
 
         #region Public methods
@@ -131,7 +130,6 @@ namespace CountryPicker.UWP.Class
         /// </summary>
         public async Task ShowAsync()
         {
-            ChangeColor();
             Init();
 
             if (_dialog != null)
@@ -139,12 +137,6 @@ namespace CountryPicker.UWP.Class
                 if (Style != null) _dialog.Style = Style;
 
                 await _dialog.ShowAsync();
-            }
-            else
-            {
-                Frame rootFrame = Window.Current.Content as Frame;
-
-                rootFrame?.Navigate(typeof(CountryPickerPage), this, new SuppressNavigationTransitionInfo());
             }
         }
 
@@ -157,41 +149,6 @@ namespace CountryPicker.UWP.Class
             {
                 _dialog.Hide();
                 _dialog = null;
-            }
-            else
-            {
-                Frame rootFrame = Window.Current.Content as Frame;
-
-                if (rootFrame != null)
-                {
-                    if(rootFrame.CanGoBack)
-                        rootFrame.GoBack(new SlideNavigationTransitionInfo());
-                }
-            }
-        }
-
-        /// <summary>
-        /// Change Title bar in Windows 10 and change Status bar in Windows Phone device color.
-        /// </summary>
-        public void ChangeColor()
-        {
-            if (IsUseColorInStatusBarOrTitleBar)
-            {
-                if (IsPhone())
-                {
-                    StatusBar.GetForCurrentView().BackgroundOpacity = 1;
-
-                    StatusBar.GetForCurrentView().BackgroundColor = (HeaderBackground as SolidColorBrush)?.Color ?? Color.FromArgb(1, 2, 169, 79);
-
-                    StatusBar.GetForCurrentView().ForegroundColor = Colors.White;
-                }
-                else
-                {
-                    var titleBar = ApplicationView.GetForCurrentView().TitleBar;
-                    titleBar.BackgroundColor = (HeaderBackground as SolidColorBrush)?.Color ?? Color.FromArgb(1, 2, 169, 79);
-                    titleBar.ButtonBackgroundColor = titleBar.BackgroundColor;
-                    titleBar.ForegroundColor = Colors.White;
-                }
             }
         }
 

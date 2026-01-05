@@ -106,7 +106,7 @@
   { "group": "I", "id": "IN", "name": "India", "code": "91" },
   { "group": "B", "id": "IO", "name": "British Indian Ocean Territory", "code": "246" },
   { "group": "I", "id": "IQ", "name": "Iraq", "code": "964" },
-  { "group": "ا", "id": "IR", "name": "ایران", "code": "98" },
+  { "group": "ا", "id": "IR", "name": "Islamic Republic of Iran", "code": "98" },
   { "group": "I", "id": "IS", "name": "Iceland", "code": "354" },
   { "group": "I", "id": "IT", "name": "Italy", "code": "39" },
   { "group": "J", "id": "JE", "name": "Jersey", "code": "441534" },

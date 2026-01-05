@@ -24,12 +24,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <SearchBox
+        <AutoSuggestBox
             FlowDirection="RightToLeft"
             FontFamily="{StaticResource IranSans}"
             PlaceholderText="جستجو"
             BorderThickness="0"
             Padding="8"
+            QueryIcon="Find"
         />
 
         <ListView
