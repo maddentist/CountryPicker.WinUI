@@ -42,16 +42,6 @@ namespace CountryPicker.UWP.Class.Models
         public Brush HeaderBackground { get; set; } = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255,2,169,79));
 
         /// <summary>
-        /// Searchbar FontFamily
-        /// </summary>
-        public FontFamily SearchBoxFontFamily { get; set; } = new FontFamily("ms-appx:///CountryPicker.UWP/Fonts/IRAN Sans.ttf#IRANSans");
-
-        /// <summary>
-        /// Header FontFamily
-        /// </summary>
-        public FontFamily HeaderFontFamily { get; set; } = new FontFamily("ms-appx:///CountryPicker.UWP/Fonts/IRAN Sans.ttf#IRANSans");
-
-        /// <summary>
         /// Show back button or not
         /// </summary>
         public bool ShowBackButton { get; set; } = true;
@@ -62,15 +52,13 @@ namespace CountryPicker.UWP.Class.Models
         public string BackButtonText { get; set; } = "";
 
 
-        protected InitializeModel(string countryName, string header, string searchBoxPlaceHolder, bool showBackButton, bool showHeader, Brush headerBackground, FontFamily searchBoxFontFamily, FontFamily headerFontFamily, string backButtonText)
+        protected InitializeModel(string countryName, string header, string searchBoxPlaceHolder, bool showBackButton, bool showHeader, Brush headerBackground, string backButtonText)
         {
             Header = header;
             SearchBoxPlaceHolder = searchBoxPlaceHolder;
             ShowBackButton = showBackButton;
             ShowHeader = showHeader;
             HeaderBackground = headerBackground;
-            SearchBoxFontFamily = searchBoxFontFamily;
-            HeaderFontFamily = headerFontFamily;
             BackButtonText = backButtonText;
             CountryName = countryName;
         }

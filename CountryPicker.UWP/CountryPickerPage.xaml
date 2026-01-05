@@ -10,9 +10,6 @@
 
     <Page.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="StaticResources/Fonts.xaml" />
-            </ResourceDictionary.MergedDictionaries>
             <CollectionViewSource
                 x:Name="CountryVM"
                 IsSourceGrouped="true"
@@ -35,12 +32,11 @@
                 <TextBlock
                     Name="LblTitle"
                     FontSize="14"
-                    FontFamily="{StaticResource IranSans}"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Foreground="White"
                     Text="Countries" />
-                
+
                 <Button
                     Click="BtnBackButton_OnClick"
                     Name="BtnBackButton"
@@ -65,8 +61,6 @@
             <AutoSuggestBox
                 Name="TxtSearchBox"
                 TextChanged="AutoSuggestBox_OnTextChanged"
-                FontFamily="{StaticResource IranSans}"
-                PlaceholderText="جستجو"
                 BorderBrush="#FF02A94F"
                 BorderThickness="0,0,0,0.8"
                 Padding="12"
@@ -97,7 +91,6 @@
                                     Margin="-8"
                                     Background="#f7f7f7">
                                     <TextBlock
-                                        FontFamily="{StaticResource IranSans}"
                                         Margin="20,0"
                                         VerticalAlignment="Center"
                                         Text="{Binding Key}"
@@ -134,7 +127,6 @@
                                 Stretch="Uniform" />
 
                             <TextBlock
-                                FontFamily="{StaticResource IranSans}"
                                 Grid.Column="1"
                                 Margin="10,0"
                                 VerticalAlignment="Center"
@@ -156,7 +148,7 @@
                 </ListView.ItemTemplate>
 
             </ListView>
-            
+
         </Grid>
     </Grid>
 </Page>

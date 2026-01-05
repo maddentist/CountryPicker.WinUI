@@ -12,7 +12,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/StaticResource/Colors.xaml" />
-                <ResourceDictionary Source="Styles/StaticResource/Fonts.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -26,8 +25,6 @@
 
         <AutoSuggestBox
             FlowDirection="RightToLeft"
-            FontFamily="{StaticResource IranSans}"
-            PlaceholderText="جستجو"
             BorderThickness="0"
             Padding="8"
             QueryIcon="Find"

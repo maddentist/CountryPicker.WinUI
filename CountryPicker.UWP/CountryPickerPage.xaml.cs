@@ -96,24 +96,6 @@ namespace CountryPicker.UWP
             }
         }
 
-        /// <summary>
-        /// Searchbar FontFamily
-        /// </summary>
-        public FontFamily SearchBoxFontFamily
-        {
-            get { return TxtSearchBox.FontFamily; }
-            set { TxtSearchBox.FontFamily = value; }
-        }
-
-        /// <summary>
-        /// Header FontFamily
-        /// </summary>
-        public FontFamily HeaderFontFamily
-        {
-            get { return LblTitle.FontFamily; }
-            set { LblTitle.FontFamily = value; }
-        }
-
         public bool ShowBackButton
         {
             get {return BtnBackButton.Visibility == Visibility.Visible;}
@@ -222,14 +204,12 @@ namespace CountryPicker.UWP
         /// <param name="initialize">Initialize model</param>
         public void InitializeProperties(InitializeModel initialize)
         {
-            if (initialize.SearchBoxFontFamily != null) SearchBoxFontFamily = initialize.SearchBoxFontFamily;
             if (!string.IsNullOrEmpty(initialize.SearchBoxPlaceHolder) ) SearchBoxPlaceHolder = initialize.SearchBoxPlaceHolder;
 
             if (!string.IsNullOrEmpty(initialize.Header)) Header = initialize.Header;
             ShowHeader = initialize.ShowHeader;
             if (initialize.HeaderBackground != null) HeaderBackground = initialize.HeaderBackground;
-            if (initialize.HeaderFontFamily != null) HeaderFontFamily = initialize.HeaderFontFamily;
-
+            
             if (!string.IsNullOrEmpty(initialize.BackButtonText)) BackButtonText = initialize.BackButtonText;
             ShowBackButton = initialize.ShowBackButton;
 
